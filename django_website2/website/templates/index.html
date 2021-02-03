@@ -1,13 +1,5 @@
-{% load static %}
-<!doctype HTML>
-<html>
-    <head> <!--CSSを書くところ-->
-        <link rel="stylesheet" href="{% static 'main.css' %}"> <!--シングルクオートとダブルクオートを間違えないように-->
-    </head>
-    <body> <!--HTML中身-->
-        {% include "_navbar.html" %}
-        <h1>ホーム</h1>
-        {% include "_footer.html" %}
-    </body>
+{% extends "base.html" %}
 
-</html>
+{% block main %}
+<h1>ホーム</h1>
+{% endblock %}

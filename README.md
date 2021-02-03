@@ -21,6 +21,7 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 3. [開発サーバーを起動する](#anchor3)
 4. [新たにアプリケーションを追加する](#anchor4)
 5. [appのWebページを追加する](#anchor5)
+6. [Webページを複数作る](#anchor6)
 <br>
 
 
@@ -112,3 +113,45 @@ urlpatterns = [
 * /app_name/website/urls.pyに飛ばされる  
 * /app_name/website/views.pyに飛ばされる
 * /app_name/website/templates/index.htmlに飛ばされる
+
+<br>
+
+
+<a id="anchor6"></a>
+
+# 6 Webページを複数作る
+Webページ(リンク)を複数作りたい場合は、  
+* app_nameフォルダの```views.py```のクラスを新たに設計する
+* app_nameフォルダの```urls.py```に新たにurlpatternsを追加する
+<br>
+
+の２つを行えばOK. プロジェクトフォルダの```urls.py```は修正する必要がないので注意  
+<br>
+/app_name/views.pyにて
+
+```python
+from django.views.generic import TemplateView
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
+```
+<br>
+
+/app_name/urls.pyにて  
+
+```python
+from django.urls import path
+
+from .views import IndexView, AboutView
+
+urlpatterns = [
+    path('', IndexView.as_view()),
+    path('about/', AboutView.as_view()), # /about/でapp_name/views.pyのAboutView(TemplateView)を実行し, templates/about.htmlを参照する
+]
+```
+のように追記すれば良い
