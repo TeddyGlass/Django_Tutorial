@@ -75,9 +75,9 @@ INSTALLED_APPS = [
 <a id="anchor5"></a>
 
 # 5 appのWebページを追加する
-1. appのフォルダ内にて```templates```フォルダを作成
+1. app_nameのフォルダ内にて```templates```フォルダを作成
 2. ```templates```フォルダ内に```index.html```(例)を作成
-3. appのフォルダ内の```views.py```に以下を記載(例)
+3. app_nameのフォルダ内の```views.py```に以下を記載(例)
 ```python
 from django.views.generic import TemplateView
 
@@ -85,7 +85,7 @@ from django.views.generic import TemplateView
 class IndexView(TemplateView):
     template_name = 'index.html' # 先ほど作成したhtmlファイルの名前
 ```
-4. appフォルダ内の```urls.py```でviewとURLを結びつける記載をする(```urls.py```がない場合は新規作成)
+4. app_nameフォルダ内の```urls.py```でviewとURLを結びつける記載をする(```urls.py```がない場合は新規作成)
 ```python
 from django.urls import path
 from .views import IndexView # 先ほど作成したviews.pyからインポート
