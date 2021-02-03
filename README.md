@@ -75,7 +75,7 @@ urlpatterns = [
         ),
 ]
 ```
-5. プロジェクトの方の```urls.py```も編集する
+5. プロジェクトフォルダ内(/project_name/project_name)の```urls.py```も編集する
 ```python
 from django.contrib import admin
 from django.urls import path, include
