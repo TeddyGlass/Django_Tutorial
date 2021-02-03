@@ -124,7 +124,6 @@ Webページ(リンク)を複数作りたい場合は、
 * app_nameフォルダの```views.py```のクラスを新たに設計する
 * app_nameフォルダの```urls.py```に新たにurlpatternsを追加する
 <br>
-
 の２つを行えばOK. プロジェクトフォルダの```urls.py```は修正する必要がないので注意  
 <br>
 /app_name/views.pyにて
