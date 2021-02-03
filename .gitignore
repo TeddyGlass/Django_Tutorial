@@ -1,3 +1,6 @@
 django_website/django_website/__pycache__/
 django_website/website/__pycache__/
+django_website2/django_website2/__pycache__/
+django_website2/website/__pycache__/
 .DS_Store
+.devcontainer
