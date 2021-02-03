@@ -162,7 +162,7 @@ urlpatterns = [
 <a id="anchor7"></a>
 
 # 7 HTMLに変数を用いる
-app_nameフォルダの```views.py```のクラスに、```get_context_data```関数を作成することでHTML内で変数を用いることが可能になる.  
+app_nameフォルダの```views.py```のクラスに、```get_context_data```メソッドを作成することでHTML内で変数を用いることが可能になる.  
 ```.get_context_data()```メソッドによって得られたオブジェクトはPythonのリスト型であり, これにKeyとValueを設定することで, HTMLからKeyを用いて呼び出し可能. ```views.py```の書き方は以下を参照.クラス毎に用いる変数をそれぞれ定義する必要がある.  
 
 
