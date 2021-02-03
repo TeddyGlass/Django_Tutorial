@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 2. ```templates```フォルダ内に```index.html``(例)を作成
 3. appのフォルダ内の```views.py```に以下を記載(例)
 ```python
-from django.veiws.generic import TemplateView
+from django.views.generic import TemplateView
 
 
 class IndexView(TemplateView):
