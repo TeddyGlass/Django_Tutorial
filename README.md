@@ -37,7 +37,7 @@ $ python manage.py runserver
 ```bash
 $ python manage.py startapp appN
 ```
-/project_name/project_name/ssettings.pyを編集する
+/project_name/project_name/settings.pyを編集する
 ```python:settings.py
 INSTALLED_APPS = [
     'django.contrib.admin',
