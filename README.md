@@ -54,4 +54,7 @@ INSTALLED_APPS = [
 **appのWebページを追加**
 1. appのフォルダ内にて```templates```フォルダを作成
 2. ```templates```フォルダ内にhtmlファイルを作成
-3. appのフォルダ内の```views.py```に```from django.veiws.generic import TemplateView```を記載.
+3. appのフォルダ内の```views.py```に以下を記載
+```python
+from django.veiws.generic import TemplateView
+```
