@@ -20,22 +20,21 @@ $ docker-compose up -d
 ```
 <br>
 
-# 基本操作
-**プロジェクトを新たにスタートする**
+# プロジェクトを新たにスタートする
 ```bash
 $ django-admin startproject project_name
 ```
 <br>
 
-**開発サーバーを起動する**
+# 開発サーバーを起動する
 ```bash
 $ python manage.py runserver
 ```
 <br>
 
-**新たにアプリケーションを追加する** 
+# 新たにアプリケーションを追加する
 ```bash
-$ python manage.py startapp appN
+$ python manage.py startapp app_name
 ```
 /project_name/project_name/settings.pyを編集する
 ```python:settings.py
@@ -46,21 +45,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'appN', # ここにapp名を追加する
+    'app_name', # ここにapp名を追加する
 ]
 ```
 <br>
 
-**appのWebページを追加**
+# appのWebページを追加する
 1. appのフォルダ内にて```templates```フォルダを作成
-2. ```templates```フォルダ内にhtmlファイルを作成
+2. ```templates```フォルダ内に```index.html``(例)を作成
 3. appのフォルダ内の```views.py```に以下を記載(例)
 ```python
 from django.veiws.generic import TemplateView
 
 
 class IndexView(TemplateView):
-    template_name = 'html_file_name.html' # 先ほど作成したhtmlファイルの名前
+    template_name = 'index.html' # 先ほど作成したhtmlファイルの名前
 ```
 4. appフォルダ内の```urls.py```でviewとURLを結びつける記載をする(```urls.py```がない場合は新規作成)
 ```python
@@ -85,3 +84,7 @@ urlpatterns = [
     path('', include('website.urls')) # トップページにアクセスしたらwebsiteフォルダ内のurlsを見にいく
 ]
 ```
+1~5の設定によりユーザーがトップページにアクセスすると  
+* /app_name/website/urls.pyに飛ばされる  
+* /app_name/website/views.pyに飛ばされる
+* /app_name/website/templates/index.htmlに飛ばされる
