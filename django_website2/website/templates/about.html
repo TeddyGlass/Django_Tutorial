@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>自己紹介</h1>
+<h1>私たちについて</h1>
 <h2>実績</h2>
-<p>これまでに{{n_services}}個のサービスを作りました</p>
+<p>{% now 'Y年m月d日 H時i分'%}これまでに{{n_services}}個のサービスを作りました</p>
 <ul>
     {% for skill in skills %}
     <li>{{skill}}</li>
