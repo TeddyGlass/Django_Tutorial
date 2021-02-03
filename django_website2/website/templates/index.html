@@ -1,11 +1,13 @@
+{% load static %}
 <!doctype HTML>
 <html>
-    <head>
-        # CSSを書き込む
+    <head> <!--CSSを書くところ-->
+        <link rel="stylesheet" href="{% static 'main.css' %}"> <!--シングルクオートとダブルクオートを間違えないように-->
     </head>
-    <body>
-        # 見える要素を配置
+    <body> <!--HTML中身-->
+        {% include "_navbar.html" %}
         <h1>ホーム</h1>
+        {% include "_footer.html" %}
     </body>
 
 </html>
