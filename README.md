@@ -62,3 +62,26 @@ from django.veiws.generic import TemplateView
 class IndexView(TemplateView):
     template_name = 'html_file_name.html' # 先ほど作成したhtmlファイルの名前
 ```
+4. appフォルダ内の```urls.py```でviewとURLを結びつける記載をする(```urls.py```がない場合は新規作成)
+```python
+from django.urls import path
+from .views import IndexView # 先ほど作成したviews.pyからインポート
+
+
+urlpatterns = [
+    path(
+        '', # 何も描かない場合はトップページに飛ぶ
+        IndexView.as_view()
+        ),
+]
+```
+5. プロジェクトの方の```urls.py```も編集する
+```python
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('website.urls')) # トップページにアクセスしたらwebsiteフォルダ内のurlsを見にいく
+]
+```
