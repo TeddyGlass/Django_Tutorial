@@ -184,5 +184,10 @@ class AboutView(TemplateView):
     def get_context_data(self):
         ctxt = super().get_context_data()
         ctxt['n_services'] = 123456789
+        ctxt['skills'] = [ # listで渡してHTML内でforでitemを列挙することも可能
+            'Python',
+            'C++',
+            'Javascript',
+        ]
         return ctxt
 ```

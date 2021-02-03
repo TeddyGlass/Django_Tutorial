@@ -5,8 +5,10 @@
 <h2>実績</h2>
 <p>これまでに{{n_services}}個のサービスを作りました</p>
 <ul>
-    <li>Python</li>
-    <li>C++</li>
-    <li>Javascript</li>
+    {% for skill in skills %}
+    <li>{{skill}}</li>
+    {% empty %}
+    <li>スキルがありません</li>
+    {% endfor %}
 </ul>
 {% endblock %}
