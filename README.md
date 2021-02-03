@@ -2,6 +2,7 @@
 LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを作る企画.  
 服薬管理を行うLINEBotは別リポジトリで開発中(非公開).
 <br>
+<br>
 
 # 開発手順
 1. [Django Tutorial 攻略](https://www.youtube.com/watch?v=nS41IkL13QE&list=PLuCS8p0T7ozK4Ne1e5eAVG2R5Gbs1naix)
