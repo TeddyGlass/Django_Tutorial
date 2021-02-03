@@ -21,19 +21,31 @@ $ docker-compose up -d
 <br>
 
 # 基本操作
-プロジェクトを新たにスタートする
+**プロジェクトを新たにスタートする**
 ```bash
 $ django-admin startproject project_name
 ```
 <br>
 
-開発サーバーを起動する
+**開発サーバーを起動する**
 ```bash
 $ python manage.py runserver
 ```
 <br>
 
-新たにアプリケーションを追加する  
+**新たにアプリケーションを追加する** 
 ```bash
 $ python manage.py startapp appN
+```
+/project_name/project_name/ettings.pyを編集する
+```python:settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'appN', # ここにapp名を追加する
+]
 ```
