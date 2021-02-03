@@ -21,7 +21,8 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 3. [開発サーバーを起動する](#anchor3)
 4. [新たにアプリケーションを追加する](#anchor4)
 5. [appのWebページを追加する](#anchor5)
-6. [Webページを複数作る](#anchor6)
+6. [Webページを複数作る](#anchor6) HTML,CSSの使い方は説明を省く
+7. [HTMLに変数を用いる](#anchor7)
 <br>
 
 
@@ -154,3 +155,34 @@ urlpatterns = [
 ]
 ```
 のように追記すれば良い
+<br>
+
+
+<a id="anchor7"></a>
+
+# 7 HTMLに変数を用いる
+app_nameフォルダの```views.py```のクラスに、```get_context_data```関数を作成することでHTML内で変数を用いることが可能になる.  
+```.get_context_data()```メソッドによって得られたオブジェクトはPythonのリスト型であり, これにKeyとValueを設定することで, HTMLからKeyを用いて呼び出し可能. ```views.py```の書き方は以下を参照.クラス毎に用いる変数をそれぞれ定義する必要がある.  
+
+
+```python
+from django.views.generic import TemplateView
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self):
+        ctxt = super().get_context_data()
+        ctxt['username'] = 'hoge' #ここでctxtのkeyとvalueを設定すると、このkeyをhtmlファイルの変数として用いることができる
+        return ctxt
+
+
+class AboutView(TemplateView):
+    template_name = 'about.html'
+
+    def get_context_data(self):
+        ctxt = super().get_context_data()
+        ctxt['n_services'] = 123456789
+        return ctxt
+```

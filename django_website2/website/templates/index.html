@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block main %}
-<h1>ホーム</h1>
+<h1>{{username}}さんようこそ！</h1>
+<img src="{% static 'welcome.jpg' %}" />
 {% endblock %}
