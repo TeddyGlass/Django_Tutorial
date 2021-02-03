@@ -1,0 +1,10 @@
+version: "3"
+services:
+  django:
+    build: ./docker
+    volumes:
+      - ./:/workspace #ymlのカレントディレクトリをマウント
+    working_dir: /workspace
+    tty: true
+    ports:
+      - "8890:8890"
