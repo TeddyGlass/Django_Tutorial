@@ -233,6 +233,7 @@ $ python manage.py collectstatic
 # 9 Herokuへの公開
 Herokへの公開には２つのファイルが必要. 一つはプロジェクトに用いる全ライブラリを記述した```requirements.txt```, もう一つは```Procfile```.
 <br>
+<br>
 
 *requirements.txt*
 ```
@@ -242,8 +243,10 @@ gunicorn
 ``` 
 <br>
 
-*rProcfile*
+*Procfile*
 ```
 web: gunicorn django_website.wsgi
 ```
+<br>
 
+次に, このリポジトリとHerocを同期させる.  
