@@ -23,6 +23,7 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 5. [appのWebページを追加する](#anchor5)
 6. [Webページを複数作る](#anchor6) HTML,CSSの使い方は説明を省く
 7. [HTMLに変数を用いる](#anchor7)
+8. [静的ファイルを配置する](#anchor8)
 <br>
 
 
@@ -191,4 +192,34 @@ class AboutView(TemplateView):
             'Javascript',
         ]
         return ctxt
+```
+
+
+<a id="anchor8"></a>
+
+# 8 静的ファイルを配置する
+アプリを公開するときは必ず```settings.py```のデバッグを```DEBUG = False```のようにオフにしなければならない. しかし, このままではブラウザで画像を読み込めない.  
+従って以下のツールで対処する  
+<br>
+1.
+
+whitenoiseをインストールする
+```bash
+$ pip install whitenoise
+```
+<br>
+2.  
+
+次に, ```settings.py```の末尾に以下の記述を加える  
+```python
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+```
+また, ```settings.py```の```MIDDLEWARE ```リストに```'whitenoise.middleware.WhiteNoiseMiddleware'```を追加する  
+<br>
+3.
+
+次に, プロジェクトフォルダと同階層に```staticfiles```フォルダを作成し, ここにDjangoで扱っている静的ファイルを全てコピーしなければならない. 以下のコマンドで一括コピーする.  
+```bash
+$ python manage.py collectstatic
 ```
