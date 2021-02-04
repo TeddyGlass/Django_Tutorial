@@ -249,4 +249,6 @@ web: gunicorn django_website.wsgi
 ```
 <br>
 
-次に, このリポジトリとHerocを同期させる.  
+次に, このリポジトリとHerokuを同期させる.Herockuにアカウント登録し、新しいappを作成. GitHubのこのリポジトリを同期させる. 詳しくは検索.  
+注意: デプロイ時のエラーでリポジトリのルートに```composer.json```を置いておく必要がある. 中身は空の```{}```のみでOK
+
