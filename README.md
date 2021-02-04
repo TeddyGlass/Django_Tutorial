@@ -12,6 +12,7 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 4. LINEでログインできるようにする  
 5. 服薬カレンダーをユーザー毎に表示する機能を実装  
 6. LINEBOTのリマインド機能に対するreplyをWeb服薬カレンダーに反映
+
 <br>
 
 
@@ -24,6 +25,8 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 6. [Webページを複数作る](#anchor6) HTML,CSSの使い方は説明を省く
 7. [HTMLに変数を用いる](#anchor7)
 8. [静的ファイルを配置する](#anchor8)
+9. [Herokuへの公開](#anchor9)
+
 <br>
 
 
@@ -218,7 +221,29 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 <br>
 3.
 
-次に, プロジェクトフォルダと同階層に```staticfiles```フォルダを作成し, ここにDjangoで扱っている静的ファイルを全てコピーしなければならない. 以下のコマンドで一括コピーする.  
+次に, プロジェクトフォルダと同階層に```static_root```フォルダを作成し, ここにDjangoで扱っている静的ファイルを全てコピーしなければならない. 以下のコマンドで一括にフォルダ作成からコピーが行える.  
 ```bash
 $ python manage.py collectstatic
 ```
+<br>
+
+
+<a id="anchor9"></a>
+
+# 9 Herokuへの公開
+Herokへの公開には２つのファイルが必要. 一つはプロジェクトに用いる全ライブラリを記述した```requirements.txt```, もう一つは```Procfile```.
+<br>
+
+*requirements.txt*
+```
+django
+whitenoise
+gunicorn
+``` 
+<br>
+
+*rProcfile*
+```
+web: gunicorn django_website.wsgi
+```
+
