@@ -230,16 +230,29 @@ $ python manage.py collectstatic
 
 <a id="anchor9"></a>
 
-# 9 Herokuへの公開
-Herokへの公開には２つのファイルが必要. 一つはプロジェクトに用いる全ライブラリを記述した```requirements.txt```, もう一つは```Procfile```.
-<br>
+# 9 Herokuを用いたデプロイ
+
+① [Herokuの公式サイト](https://dashboard.heroku.com/)でユーザー登録とappの新規作成を行う.  
+
+② Herokuをインストールする
+```bash
+$ brew tap heroku/brew && brew install heroku
+```
+
+③ Herokuへのデプロイ準備  
+DjangoアプリケーションをHerokでデプロイするには新たに２つのファイルが必要. 一つはプロジェクトに用いる全ライブラリを記述した```requirements.txt```, もう一つは```Procfile```.  
+これらのファイルがアプリのルートに存在するとHerokuはデプロイするアプリケーションの言語をPythonだと自動認識してくれる.
 <br>
 
 *requirements.txt*
 ```
 django
 whitenoise
-gunicorn
+requests
+numpy
+scipy
+pandas
+jupyter
 ``` 
 <br>
 
@@ -249,7 +262,34 @@ web: gunicorn django_website2.wsgi
 ```
 <br>
 
-次に, このリポジトリとHerokuを同期させる.Herockuにアカウント登録し、新しいappを作成. GitHubのこのリポジトリを同期させる. 詳しくは検索.  
-注意: デプロイ時のエラーでリポジトリのルートに```composer.json```を置いておく必要がある. 中身は空の```{}```のみでOK!
+③ デプロイ用のGitHubリポジトリを新たに作成  
+次に, **アプリケーションの**GitHubリポジトリを別に作成.以下のようなリポジトリを想定. 以下のGitHubリポジトリとHerokuを同期させることでHerokuを用いたデプロイが可能. 
+```
+|-django_website2
+|       |_...
+|       |_...
+|       |_...
+|
+|-website2
+|    |_...
+|    |_...
+|    |_...
+|
+|-Procfile
+|-equirements.txt
+|-manage.py
+```
+<br>
 
+④ ③で作成したGitHubリポジトリを別ディレクトリにクローン  
+　　
+
+⑤ アプリケーションのリポジトリの直下で以下のコマンドを実行
+```
+$ heroku create
+$ git push heroku main
+$ heroku ps:scale web=1
+$ heroku open
+```
+詳しくは[Herokuの公式チュートリアル](https://devcenter.heroku.com/ja/articles/getting-started-with-python#-4)で.
 
