@@ -16,6 +16,7 @@
 8. [静的ファイルを配置する](#anchor8)
 9. [Herokuへの公開](#anchor9)
 10. [データベース接続](#anchor10)
+11. [ブログを作って学ぶモデル入門](#anchor11)
 
 <br>
 
@@ -310,4 +311,8 @@ $ python manage.py createsuperuser
 ## MySQLと接続
 ---工事中---
 
+<br>
 
+<a id="anchor11"></a>
+
+# 11 ブログを作って学ぶモデル入門
