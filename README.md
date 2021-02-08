@@ -26,6 +26,7 @@ LINEBotと連帯した服薬管理(お薬手帳)Webアプリケーションを�
 7. [HTMLに変数を用いる](#anchor7)
 8. [静的ファイルを配置する](#anchor8)
 9. [Herokuへの公開](#anchor9)
+10. [データベース接続](#anchor10)
 
 <br>
 
@@ -292,4 +293,32 @@ $ heroku ps:scale web=1
 $ heroku open
 ```
 詳しくは[Herokuの公式チュートリアル](https://devcenter.heroku.com/ja/articles/getting-started-with-python#-4)で.
+<br>
+<br>
+
+<a id="anchor10"></a>
+
+# 10 データベース接続
+
+## Sqlite3と接続  
+<br>
+
+djangoがデフォルトで持っているsqliteのデータベースの動作確認.  
+15行ほどログが出力されて成功すればOK.
+```
+$ python manage.py migrate
+```
+**試しにスーパーユーザー（管理者）を作成してみよう**  
+ユーザー名、メール、パスワードを聞かれるので答えると作成されます。
+```
+$ python manage.py createsuperuser
+```
+**管理者画面に入る**  
+開発用サーバーを立ち上げてURLの末尾に```/admin/```で管理画面に入れる.
+<br>
+<br>
+
+## MySQLと接続
+---工事中---
+
 
