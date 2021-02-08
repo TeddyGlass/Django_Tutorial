@@ -293,7 +293,7 @@ $ heroku open
 ## Sqlite3と接続  
 <br>
 
-djangoがデフォルトで持っているsqliteのデータベースの動作確認.  
+djangoがデフォルトで持っているsqliteのデータベースの動作確認.これでsqliteのファイルが作成され巡撫が整う.  
 15行ほどログが出力されて成功すればOK.
 ```
 $ python manage.py migrate
