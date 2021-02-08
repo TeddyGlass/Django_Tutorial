@@ -1,0 +1,8 @@
+django
+whitenoise
+gunicorn
+requests
+numpy
+scipy
+pandas
+jupyter

@@ -318,4 +318,13 @@ $ python manage.py createsuperuser
 # 11 ブログを作って学ぶモデル入門
 https://github.com/shun-rec/django-website-06
 
- 
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+を行なってから  
+```
+$ python manage.py shell
+```
+でデータベースを作っていく.
+
