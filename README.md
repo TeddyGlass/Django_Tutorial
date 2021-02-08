@@ -316,3 +316,6 @@ $ python manage.py createsuperuser
 <a id="anchor11"></a>
 
 # 11 ブログを作って学ぶモデル入門
+https://github.com/shun-rec/django-website-06
+
+ 
